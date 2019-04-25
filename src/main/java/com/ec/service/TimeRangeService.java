@@ -15,7 +15,6 @@ public class TimeRangeService {
 		return grupos;
 	}
 
-	
 	public Boolean checkTime(Date time) {
 		Boolean isOnTime = true;
 		List<TimeRange> times = getTimeRanges();
@@ -30,11 +29,22 @@ public class TimeRangeService {
 				int minute1 = Integer.valueOf(t.getStartTime().substring(3, 5));
 				int hour2 = Integer.valueOf(t.getEndTime().substring(0, 2));
 				int minute2 = Integer.valueOf(t.getEndTime().substring(3, 5));
-				
 				if (hour >= hour1 && hour <= hour2) {
-					if (minute >= minute1 && minute <= minute2) {
-						isOnTime = false;
-						break;
+					if (hour == hour1) {
+						if (minute >= minute1 && ((hour < hour2) || (hour == hour2 && minute <= minute2))) {
+							isOnTime = false;
+							break;
+						}
+					} else {
+						if (hour == hour2) {
+							if (minute <= minute2) {
+								isOnTime = false;
+								break;
+							}
+						} else {
+							isOnTime = false;
+							break;
+						}
 					}
 				}
 			}
@@ -55,5 +65,5 @@ public class TimeRangeService {
 		int minute1 = Integer.valueOf(hora.substring(3, 5));
 		System.out.println("hour1: " + hour1 + " minute1: " + minute1);
 	}
-	
+
 }

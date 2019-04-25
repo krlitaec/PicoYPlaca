@@ -7,11 +7,19 @@
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
-	<title>Predictor</title>
+	<title>Pico y Placa Predictor</title>
 </h:head>
+<style type="text/css">
+.ui-growl {
+    position:absolute;
+    top:50%;
+    left:60%;
+    z-index:9999;
+}
+</style>
 <h:body>
 	<h:form>
-		<p:growl id="growl" showDetail="true" sticky="true" />
+		<p:growl id="growl" showDetail="true" sticky="true"  />
 		<p:panel>
 			<f:facet name="header">
 				<p:outputLabel value="CHECK PLATE"></p:outputLabel>
@@ -34,8 +42,6 @@
 				<p:outputLabel value="Time:"></p:outputLabel>
 				<p:calendar id="time" value="#{predictorMB.time}" pattern="HH:mm"
 					timeOnly="true" />
-
-
 
 
 				<f:facet name="footer">

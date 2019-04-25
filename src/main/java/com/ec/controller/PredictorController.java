@@ -37,6 +37,7 @@ public class PredictorController {
 	public String checkPlate () {
 		String type = "Successful";
 		if (plate  == null || day == null || time == null) {
+			type = "Error";
 			message = "Please enter all info!";
 		} else {
 			getPlateService();
