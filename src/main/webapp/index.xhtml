@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Predictor</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		<p:panel>
+			<f:facet name="header">
+				<p:outputLabel value="CHECK PLATE"></p:outputLabel>
+			</f:facet>
+			<p:panelGrid columns="2" cellspacing="20" border="1"
+				style="margin-left: 33%">
+				<f:facet name="header">
+					<p:outputLabel value="Plate Info"></p:outputLabel>
+				</f:facet>
+
+				<p:outputLabel value="Day:"></p:outputLabel>
+				<p:selectOneMenu id="day" value="#{predictorMB.day}">
+					<f:selectItems value="#{predictorMB.days}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Plate Number:"></p:outputLabel>
+				<p:inputText value="#{predictorMB.plate}" maxlength="5"
+					onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;"></p:inputText>
+
+				<p:outputLabel value="Time:"></p:outputLabel>
+				<p:calendar id="time" value="#{predictorMB.time}" pattern="HH:mm"
+					timeOnly="true" />
+
+
+
+
+				<f:facet name="footer">
+					<p:commandButton action="#{predictorMB.checkPlate()}"
+						style="margin-left: 120px" update="growl" value="Check Time"></p:commandButton>
+				</f:facet>
+
+			</p:panelGrid>
+			<p:graphicImage value="/resources/images/car.gif"
+					style="margin-left: 38%"  />
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>
