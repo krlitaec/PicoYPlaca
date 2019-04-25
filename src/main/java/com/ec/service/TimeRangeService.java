@@ -7,14 +7,30 @@ import java.util.List;
 
 import com.ec.model.TimeRange;
 
+/**
+ * Service class to manage TimeRange backend
+ * @author Karla
+ * @since 24-04-2019
+ *
+ */
 public class TimeRangeService {
 
+	/**
+	 * Method to simulate the get of the ranges of times of the database.
+	 * @return
+	 */
 	public List<TimeRange> getTimeRanges() {
 		List<TimeRange> grupos = Arrays.asList(new TimeRange("07:00", "09:30", true),
 				new TimeRange("16:00", "19:30", true), new TimeRange("11:00", "12:30", false));
 		return grupos;
 	}
 
+	/**
+	 * Method that verifies if a plate is on time
+	 * @param plate
+	 * @param day
+	 * @return
+	 */
 	public Boolean checkTime(Date time) {
 		Boolean isOnTime = true;
 		List<TimeRange> times = getTimeRanges();

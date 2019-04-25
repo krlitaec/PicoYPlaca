@@ -1,11 +1,24 @@
 package com.ec.model;
 
+/**
+ * Model class to simulate a database table 
+ * Simulating the time_range table 
+ * @author Karla
+ * @since 24-04-2019
+ *
+ */
 public class TimeRange {
 	
 	private String startTime;
 	private String endTime;
 	private Boolean status;
 	
+	/**
+	 * Constructor
+	 * @param startTime
+	 * @param endTime
+	 * @param status
+	 */
 	public TimeRange(String startTime, String endTime, Boolean status) {
 		this.startTime = startTime;
 		this.endTime = endTime;

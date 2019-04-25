@@ -13,6 +13,12 @@ import com.ec.model.TimeRange;
 import com.ec.service.PlateService;
 import com.ec.service.TimeRangeService;
 
+/**
+ * Test class 
+ * @author Karla
+ * @since 25-04-2019
+ *
+ */
 public class PredictorTest {
 	private PlateService plateService;
 	private TimeRangeService timeRangeService;

@@ -14,7 +14,12 @@ import com.ec.model.PlateRange;
 import com.ec.service.PlateService;
 import com.ec.service.TimeRangeService;
 
-
+/**
+ * Controller class to manage the frontend
+ * @author Karla
+ * @since 25-04-2019
+ *
+ */
 @ManagedBean (name = "predictorMB")
 @RequestScoped  
 public class PredictorController {
@@ -28,12 +33,10 @@ public class PredictorController {
 	private PlateService plateService;
 	private TimeRangeService rangeService;
 	
-	public String test () {
-		day = "Para pruebas";
-		time = Calendar.getInstance().getTime();
-		return "/faces/index.xhtml";
-	}
-	
+	/**
+	 * Method that verifies if a plate is registered with a particular day and at a time indicated by the user
+	 * @return
+	 */
 	public String checkPlate () {
 		String type = "Successful";
 		if (plate  == null || day == null || time == null) {
